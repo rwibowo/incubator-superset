@@ -27,6 +27,8 @@ RUN mkdir /app \
             build-essential \
             default-libmysqlclient-dev \
             libpq-dev \
+            libsasl2-modules-sql \
+            python-dev libsasl2-dev gcc \
         && rm -rf /var/lib/apt/lists/*
 
 # First, we just wanna install requirements, which will allow us to utilize the cache
@@ -76,6 +78,8 @@ RUN useradd --user-group --no-create-home --no-log-init --shell /bin/bash supers
             build-essential \
             default-libmysqlclient-dev \
             libpq-dev \
+            libsasl2-modules-sql \
+            python-dev libsasl2-dev gcc \
         && rm -rf /var/lib/apt/lists/*
 
 COPY --from=superset-py /usr/local/lib/python3.6/site-packages/ /usr/local/lib/python3.6/site-packages/
